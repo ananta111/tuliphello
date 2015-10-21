@@ -3,13 +3,6 @@ FIND_PACKAGE(QtX REQUIRED)
 
 SET(PLUGIN_NAME Infiniband)
 
-#if(CMAKE_VERSION VERSION_LESS 2.8.13)
-#  get_property(LIBIBAUTILS_LOCATION TARGET libibautils PROPERTY LOCATION)
-#else(CMAKE_VERSION VERSION_LESS 2.8.13)
-#  set(LIBIBAUTILS_LOCATION $<TARGET_FILE:libibautils>)
-#endif(CMAKE_VERSION VERSION_LESS 2.8.13)
-
-#MESSAGE(STATUS "Adding Infiniband Import Plugin. Linking against ${LIBIBAUTILS_LOCATION}")                                                                                                                                                                  
 MESSAGE(STATUS "Adding Infiniband Plugins.")
 INCLUDE_DIRECTORIES(${IBAUTIL_INCLUDE_DIR} ${TULIP_INCLUDE_DIR} ${QT_INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR})
 
