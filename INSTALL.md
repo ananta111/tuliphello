@@ -3,6 +3,8 @@
   * http://tulip.labri.fr/Documentation/current/tulip-dev/html/installation.html
 * libibautils 
   * https://github.com/nateucar/libibautils
+* Google's RE2
+  * https://github.com/google/re2
 * cmake
 * c++ compiler
 * all prerequistes for Tulip
