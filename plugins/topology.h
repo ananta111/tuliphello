@@ -21,7 +21,7 @@
 #pragma once
 
 #include <tulip/TulipPluginHeaders.h>
-#include "libibautils/ib_fabric.h"
+#include "ibautils/ib_fabric.h"
 
 #ifndef IB_TOPOLOGY_H
 #define IB_TOPOLOGY_H

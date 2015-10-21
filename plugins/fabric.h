@@ -21,7 +21,7 @@
 
 #include <map>
 #include <tulip/TulipPluginHeaders.h>
-#include "libibautils/ib_fabric.h"
+#include "ibautils/ib_fabric.h"
 
 #ifndef IB_TULIP_FABRIC_H
 #define IB_TULIP_FABRIC_H

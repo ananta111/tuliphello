@@ -21,9 +21,9 @@
 #include<fstream>
 #include "routes.h"
 #include "fabric.h"
-#include "libibautils/ib_fabric.h"
-#include "libibautils/ib_parser.h"
-#include "libibautils/regex.h"
+#include "ibautils/ib_fabric.h"
+#include "ibautils/ib_parser.h"
+#include "ibautils/regex.h"
 
 PLUGIN(ImportInfinibandRoutes)
 

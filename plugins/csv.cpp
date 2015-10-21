@@ -22,8 +22,8 @@
 #include <tulip/CSVParser.h>
 #include "csv.h"
 #include "fabric.h"
-#include "libibautils/ib_fabric.h"
-#include "libibautils/regex.h"
+#include "ibautils/ib_fabric.h"
+#include "ibautils/regex.h"
 
 PLUGIN(ImportInfinibandCSV)
 

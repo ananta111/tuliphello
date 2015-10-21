@@ -21,8 +21,8 @@
 #include<fstream>
 #include "fabric.h"
 #include "topology.h"
-#include "libibautils/ib_fabric.h"
-#include "libibautils/ib_parser.h"
+#include "ibautils/ib_fabric.h"
+#include "ibautils/ib_parser.h"
 
 PLUGIN(ImportInfinibandTopology)
 
