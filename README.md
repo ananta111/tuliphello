@@ -12,4 +12,4 @@ NCAR has created a patch for the seamless import of Infiniband network topologie
 * Infiniband Topology Import Routes:
  * This plugin imports the file ibdiagnet2.fdbs created by 'ibdiagnet -r' command. Currently, it fills out the ibRoutesOutbound field with number of routes outbound on a given cable (directional edge).
 
-Special thanks for Patrick Mary for his help with this project.
+Special thanks to Patrick Mary for his help with this project.

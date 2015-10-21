@@ -13,11 +13,7 @@ http://tulip.labri.fr/Documentation/current/tulip-dev/html/tulip_tutorial.html
 
 # Install Procedure
 1. Use Cmake to configure
-```
-cmake -DCMAKE_MODULE_PATH="<path to Tulip install/share/tulip directory>;<path to Infiniband directory>" -DRE2_INCLUDE_DIR=<path to re2 directory> -DRE2_LIBRARY=<path to libre2.so> -DCMAKE_BUILD_TYPE=Release <path to Infiniband directory>
-```
+        cmake -DCMAKE_MODULE_PATH="<path to Tulip install/share/tulip directory>;<path to Infiniband directory>" -DRE2_INCLUDE_DIR=<path to re2 directory> -DRE2_LIBRARY=<path to libre2.so> -DCMAKE_BUILD_TYPE=Release <path to Infiniband directory>
 2. Compile and install
-```
-make
-make install
-```
+        make
+        make install
