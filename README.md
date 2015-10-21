@@ -1,6 +1,8 @@
 # Tulip Infiniband Plugins
 Plugins to import and work with Infiniband networks in Tulip
 
+![Example Cluster](https://raw.githubusercontent.com/nateucar/tulip_infiniband/master/tulip_infinband_example.jpeg)
+
 * NCAR: https://ncar.ucar.edu/
 * Tulip Project: http://tulip.labri.fr/
 * Tulip Plugin Development: http://tulip.labri.fr/Documentation/current/tulip-dev/html/plugin_development.html
