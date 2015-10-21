@@ -2,6 +2,7 @@
 Plugins to import and work with Infiniband networks in Tulip
 
 Tulip Project: http://tulip.labri.fr/
+Tulip Plugin Development: http://tulip.labri.fr/Documentation/current/tulip-dev/html/plugin_development.html
 
 NCAR has created a patch for the seamless import of Infiniband network topologies and related data. This patch consists of 3 tulip plugins that utilize libibautils (included in thirdparty). It has been tested against 4.7.0 release and SVN revision 10831. It adds a new linking requirement of Google's RE2 library and is setup to gracefully avoid compilation if RE2 is not provided. It does not require linking against OFED. An example screenshot of an imported fabric is attached. This plugin set has been tested on several 4+k node Infiniband clusters. The tulip plugins are licensed as LGPLv3 to match tulip and libibautils is licensed under a BSD license. The three new plugins are described as follows:
 * Infiniband Topology Import:
