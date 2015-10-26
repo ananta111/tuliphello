@@ -53,6 +53,7 @@ make
 sudo make install
 ```
 * Compile and install Infinband Plugins into Tulip
+```
 git clone https://github.com/nateucar/tulip_infiniband.git tulip_infiniband
 mkdir tulip_infiniband/build
 cd tulip_infiniband/build
