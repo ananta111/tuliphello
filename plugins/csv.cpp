@@ -116,9 +116,9 @@ public:
   /**
    * Function called at the beginning of the file parsing.
    */
-  virtual void begin()
+  virtual bool begin()
   {
-
+    return true;
   }
 
   /**
@@ -127,7 +127,7 @@ public:
    * @param lineTokens The tokens.
    * @example guid,port,time_interval(ns),bytes,nanoseconds since epoch
    */
-  virtual void line(unsigned int row, const std::vector<std::string>& lineTokens)
+  virtual bool line(unsigned int row, const std::vector<std::string>& lineTokens)
   {
     //std::cout << "read: " << row << ": " << lineTokens.size() << std::endl;
     //for(std::vector<std::string>::const_iterator itr = lineTokens.begin(), eitr = lineTokens.end(); itr != eitr; ++itr)
@@ -146,7 +146,7 @@ public:
          data_column > 0
        )
     )
-      return;
+      return false;
 
     ib::guid_t guid     = regex::uint_cast_hex_string<ib::guid_t>(lineTokens.at(guid_column - 1));
     ib::port_num_t portnum = regex::uint_cast_string<ib::port_num_t>(lineTokens.at(portnum_column - 1));
@@ -167,7 +167,7 @@ public:
         " port: " << regex::string_cast_uint(portnum) <<
         " metric: " << regex::string_cast_uint(metric) << std::endl;
 #endif
-      return;
+      return false;
     }
 
     assert(p_itr->second);
@@ -182,12 +182,14 @@ public:
         " port: " << regex::string_cast_uint(portnum) <<
         " metric: " << regex::string_cast_uint(metric) << std::endl;
 #endif
-      return;
+      return false;
     }
 
     tlp::edge &edge = e_itr->second;
 
     metrics->setEdgeValue(edge, static_cast<double>(metric));
+
+    return true;
   }
 
   /**
@@ -195,9 +197,9 @@ public:
    * @param rowNumber the number of row read in the file.
    * @param columnNumber The column number for the line with the greatest column number.
    */
-  virtual void end(unsigned int rowNumber, unsigned int columnNumber)
+  virtual bool end(unsigned int rowNumber, unsigned int columnNumber)
   {
-
+    return true;
   }
 };
 
