@@ -101,13 +101,13 @@ bool HelloWorld::run()
   }
   
   ibp::ibdiagnet_fwd_db parser;
-  if(!parser.parse(*fabric, ifs))
+  /*if(!parser.parse(*fabric, ifs))
   {
     if(pluginProgress)
       pluginProgress->setError("Unable parse routes file.");
 
     return false;
-  }
+  }*/
 
   if(pluginProgress)
   {
