@@ -45,7 +45,7 @@ ImportInfinibandRoutes::ImportInfinibandRoutes(tlp::PluginContext* context)
 namespace ib = infiniband;
 namespace ibp = infiniband::parser;
 
-bool ImportInfinibandRoutes::run()
+bool HelloWorld::run()
 {
   assert(graph);
 
