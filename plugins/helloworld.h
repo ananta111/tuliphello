@@ -25,7 +25,7 @@
 #ifndef IB_ROUTES_H
 #define IB_ROUTES_H
   
-class ImportInfinibandRoutes: public tlp::Algorithm {
+class HelloWorld: public tlp::Algorithm {
 public:
   PLUGININFORMATION("HelloWorld",
                     "Ananta",
@@ -34,7 +34,7 @@ public:
                     "alpha",
                     "Infiniband") 
   
-  ImportInfinibandRoutes(tlp::PluginContext* context);
+  HelloWorld(tlp::PluginContext* context);
 
   /**
    * @brief import infiniband routes
