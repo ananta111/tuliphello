@@ -25,7 +25,8 @@
 #include "ibautils/ib_parser.h"
 #include "ibautils/regex.h"
 
-PLUGIN(ImportInfinibandRoutes)
+/*PLUGIN(ImportInfinibandRoutes)*/
+PLUGIN(HelloWorld)
 
 static const char * paramHelp[] = {
   // File to Open
@@ -36,7 +37,7 @@ static const char * paramHelp[] = {
   HTML_HELP_CLOSE()
 };
 
-ImportInfinibandRoutes::ImportInfinibandRoutes(tlp::PluginContext* context)
+HelloWorld::HelloWorld(tlp::PluginContext* context)
   : tlp::Algorithm(context)
 {
   addInParameter<std::string>("file::filename", paramHelp[0],"");
