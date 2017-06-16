@@ -40,7 +40,7 @@ static const char * paramHelp[] = {
 HelloWorld::HelloWorld(tlp::PluginContext* context)
   : tlp::Algorithm(context)
 {
-  addInParameter<std::string>("file::filename", paramHelp[0],"");
+  /*addInParameter<std::string>("file::filename", paramHelp[0],"");*/
 }
 
 namespace ib = infiniband;
