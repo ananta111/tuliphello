@@ -26,6 +26,9 @@
 #define IB_ROUTES_H
   
 class HelloWorld: public tlp::Algorithm {
+private:
+  int v; //number of node;
+  int **adjacent_matrix;
 public:
   PLUGININFORMATION("HelloWorld",
                     "Ananta",
@@ -40,6 +43,35 @@ public:
    * @brief import infiniband routes
    * @warning currently only works if static data is retained from import
    */
+  void initMap(const Graph *graph, int v){
+        this->v = v;
+        adjacent_matrix = new int* [v];
+        for(int i = 0; i<v; i++){
+            adjacent_matrix[i] = new int[v];
+        }
+
+        //Initialize the adjacent_matrix
+        for(int i = 0; i<v; i++){
+            for(int j = 0; j<v; j++){
+                adjacent_matrix[i][j] = 0;
+            }
+        }
+
+        //Set up the adjacent_matrix
+        tlp::Iterator<edge> *ite = graph->getEdges();
+        while(ite->hasNext()){
+            edge e = ite->next();
+            int s = graph->source(e).id, t = graph->target(e).id;
+            if(!adjacent_matrix[s][t]){
+                adjacent_matrix[s][t] = 1;
+                adjacent_matrix[t][s] = 1;
+            }
+        }
+    }
+
+  int min_distance(int dist[], bool visited[]);
+  void dijkstra(int src);
+  void printResult(int dist[]);
   bool run();
 };
 
