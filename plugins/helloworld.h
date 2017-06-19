@@ -27,7 +27,7 @@
   
 class HelloWorld: public tlp::Algorithm {
 private:
-  int v; //number of node;
+  int v=0; //number of node;
   int **adjacent_matrix;
 public:
   PLUGININFORMATION("HelloWorld",
