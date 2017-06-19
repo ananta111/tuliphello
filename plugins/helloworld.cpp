@@ -163,7 +163,7 @@ bool HelloWorld::run()
       }
     }
   }*/
-  std::Iterator<edge> *ited = graph->getEdges;
+  Iterator<edge> *ited = graph->getEdges;
   
   while( ited->hasNext()){
     edge e = ited.next();
