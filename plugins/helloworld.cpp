@@ -211,12 +211,14 @@ bool HelloWorld::run()
     }
   }*/
   tlp::Iterator<node> *itnod = graph->getNodes();
-  int v = 0;
+  
   
   while( itnod->hasNext()){
     node n = itnod.next();
-    v++;
+    HelloWorld::v++;
   }
+  HelloWorld *hw = new HelloWorld();
+  hw->Dijkstra(0);
   
   
   
