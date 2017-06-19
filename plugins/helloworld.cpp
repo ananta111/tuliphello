@@ -25,6 +25,8 @@
 #include "ibautils/ib_parser.h"
 #include "ibautils/regex.h"
 
+using namespace tlp;
+
 /*PLUGIN(ImportInfinibandRoutes)*/
 PLUGIN(HelloWorld)
 
