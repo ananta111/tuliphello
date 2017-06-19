@@ -168,7 +168,7 @@ bool HelloWorld::run()
   tlp::Iterator<edge> *ited = graph->getEdges;
   
   while( ited->hasNext()){
-    edge e = ited.next();
+    edge e = ited->next();
     std::cout<< e.id;
   }
 
