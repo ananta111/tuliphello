@@ -26,6 +26,7 @@
 #include "ibautils/regex.h"
 
 using namespace tlp;
+using namespace std;
 
 /*PLUGIN(ImportInfinibandRoutes)*/
 PLUGIN(HelloWorld)
@@ -42,11 +43,55 @@ static const char * paramHelp[] = {
 HelloWorld::HelloWorld(tlp::PluginContext* context)
   : tlp::Algorithm(context)
 {
-  addInParameter<std::string>("file::filename", paramHelp[0],"");
+  /*addInParameter<std::string>("file::filename", paramHelp[0],"");*/
+    
 }
 
 namespace ib = infiniband;
 namespace ibp = infiniband::parser;
+
+//Implementing min_distance
+int HelloWorld::min_distance(int dist[], bool visited[]){
+  int min = INT_MAX;
+    int min_index = 0;
+
+    for(int i = 0; i<v; i++){
+        if(!visited[i] && dist[i] < min)
+            min = dist[i], min_index = i;
+    }
+
+    return min_index;
+}
+
+//print results
+void HelloWorld::printResults(int dist[]){
+  for(int i = 0; i<v; i++){
+        cout<<i<<": "<<dist[i]<<endl;
+    }
+}
+
+//Dijkstra's algorithm implementation 
+void HelloWorld::dijkstra(int src){
+  int dist[v];
+  bool visited[v];
+  for (int i = 0; i < v; i++) {
+        dist[i] = INT_MAX, visited[i] = false;
+    }
+    dist[src] = 0;
+
+    for (int count = 0; count < v - 1; count++) {
+        int u = min_distance(dist, visited);
+        visited[u] = true;
+
+        for (int i = 0; i < v; i++) {
+            if (!visited[i] && adjacent_matrix[u][i] && dist[u] != INT_MAX &&
+                dist[u] + adjacent_matrix[u][i] < dist[i])
+                dist[i] = dist[u] + adjacent_matrix[u][i];
+        }
+    }
+    printResult(dist);
+}
+
 
 bool HelloWorld::run()
 {
@@ -165,12 +210,19 @@ bool HelloWorld::run()
       }
     }
   }*/
-  tlp::Iterator<edge> *ited = graph->getEdges();
+  tlp::Iterator<node> *itnod = graph->getNodes();
   
-  while( ited->hasNext()){
-    edge e = ited->next();
-    std::cout<< e.id;
+  
+  while( itnod->hasNext()){
+    node n = itnod.next();
+    HelloWorld::v++;
   }
+  HelloWorld *hw = new HelloWorld();
+  hw->Dijkstra(0);
+  
+  
+  
+  
 
   if(pluginProgress)
   {
