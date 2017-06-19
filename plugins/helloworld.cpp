@@ -165,7 +165,7 @@ bool HelloWorld::run()
       }
     }
   }*/
-  tlp::Iterator<edge> *ited = graph->getEdges;
+  tlp::Iterator<edge> *ited = graph->getEdges();
   
   while( ited->hasNext()){
     edge e = ited->next();
