@@ -225,7 +225,7 @@ bool HelloWorld::run()
   dist[0]=0;
   
   for(int count=0;count<v-1;count++){
-    int u = min_distance(dist,visited,v);
+    int u = HelloWorld::min_distance(dist,visited,v);
     visited[u] = true;
     
     for (int i =0;i<v;i++){
