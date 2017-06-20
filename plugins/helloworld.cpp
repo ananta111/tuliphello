@@ -217,8 +217,7 @@ bool HelloWorld::run()
     node n = itnod.next();
     HelloWorld::v++;
   }
-  HelloWorld *hw = new HelloWorld();
-  hw->Dijkstra(0);
+  Dijkstra(0);
   
   
   
