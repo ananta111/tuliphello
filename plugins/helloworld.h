@@ -26,9 +26,8 @@
 #define IB_ROUTES_H
   
 class HelloWorld: public tlp::Algorithm {
-private:
-  int v=0; //number of node;
-  int **adjacent_matrix;
+
+  
 public:
   PLUGININFORMATION("HelloWorld",
                     "Ananta",
@@ -45,8 +44,6 @@ public:
    */
   
   int min_distance(int dist[], bool visited[]);
-  void dijkstra(int src);
-  void printResult(int dist[]);
   bool run();
 };
 
