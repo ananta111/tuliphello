@@ -43,7 +43,7 @@ public:
    * @warning currently only works if static data is retained from import
    */
   
-  int min_distance(int dist[], bool visited[]);
+  int min_distance(int dist[], bool visited[],int v);
   bool run();
 };
 
