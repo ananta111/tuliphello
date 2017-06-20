@@ -194,6 +194,7 @@ bool HelloWorld::run()
   }
   
   //initialize matrix
+  int **adjacent_matrix;
   adjacent_matrix = new int* [v];
   for(int i = 0; i<v; i++){
     adjacent_matrix[i] = new int[v];
