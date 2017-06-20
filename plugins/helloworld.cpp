@@ -51,7 +51,7 @@ namespace ib = infiniband;
 namespace ibp = infiniband::parser;
 
 //Implementing min_distance
-int HelloWorld::min_distance(int dist[], bool visited[]){
+int HelloWorld::min_distance(int dist[], bool visited[], int v){
   int min = INT_MAX;
     int min_index = 0;
 
@@ -63,34 +63,8 @@ int HelloWorld::min_distance(int dist[], bool visited[]){
     return min_index;
 }
 
-//print results
-void HelloWorld::printResults(int dist[]){
-  for(int i = 0; i<v; i++){
-        cout<<i<<": "<<dist[i]<<endl;
-    }
-}
 
-//Dijkstra's algorithm implementation 
-void HelloWorld::dijkstra(int src){
-  int dist[v];
-  bool visited[v];
-  for (int i = 0; i < v; i++) {
-        dist[i] = INT_MAX, visited[i] = false;
-    }
-    dist[src] = 0;
 
-    for (int count = 0; count < v - 1; count++) {
-        int u = min_distance(dist, visited);
-        visited[u] = true;
-
-        for (int i = 0; i < v; i++) {
-            if (!visited[i] && adjacent_matrix[u][i] && dist[u] != INT_MAX &&
-                dist[u] + adjacent_matrix[u][i] < dist[i])
-                dist[i] = dist[u] + adjacent_matrix[u][i];
-        }
-    }
-    printResult(dist);
-}
 
 
 bool HelloWorld::run()
@@ -211,14 +185,61 @@ bool HelloWorld::run()
     }
   }*/
   tlp::Iterator<node> *itnod = graph->getNodes();
+  int v = 0; 
   
   
   while( itnod->hasNext()){
-    node n = itnod.next();
-    HelloWorld::v++;
+    node n = itnod->next();
+    v++;
   }
-  Dijkstra(0);
   
+  //initialize matrix
+  adjacent_matrix = new int* [v];
+  for(int i = 0; i<v; i++){
+    adjacent_matrix[i] = new int[v];
+  }
+  
+  for(int i = 0; i<v; i++){
+    for(int j = 0; j<v; j++){
+      adjacent_matrix[i][j] = 0;
+    }
+  }
+  tlp::Iterator<edge> *ite = graph->getEdges();
+  while(ite->hasNext()){
+    edge e = ite->next();
+    int s = graph->source(e).id, t = graph->target(e).id;
+    if(!adjacent_matrix[s][t]){
+      adjacent_matrix[s][t]=1;
+      adjacent_matrix[t][s]=1;
+    }
+  }
+  
+  //djistra implementation 
+  int dist[v];
+  bool visited[v];
+  for(int i =0;i<v;i++){
+    dist[i] = INT_MAX, visited[i]=false;
+  }
+  
+  dist[0]=0;
+  
+  for(int count=0;count<v-1;count++){
+    int u = min_distance(dist,visited,v);
+    visited[u] = true;
+    
+    for (int i =0;i<v;i++){
+      if (!visited[i] && adjacent_matrix[u][i] && dist[u] != INT_MAX && (dist[u] + adjacent_matrix[u][i]) < dist[i])
+        dist[i] = dist[u] + adjacent_matrix[u][i];
+    }
+  }
+  
+  //Print Distance
+  for(int i = 0; i<v; i++){
+    cout<<i<<": "<<dist[i]<<endl;
+  }
+
+  
+        
   
   
   
