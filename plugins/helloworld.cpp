@@ -236,7 +236,7 @@ bool HelloWorld::run()
   int k = 0;
   while(itnod->hasNext()){
     node m = itnod->next();
-    tlp::int hop = dist[k]
+    int hop = dist[k];
     ibHops->setNodeValue(m, hop);
     k++;
   }
