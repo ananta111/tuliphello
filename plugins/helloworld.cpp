@@ -43,24 +43,23 @@ static const char * paramHelp[] = {
 HelloWorld::HelloWorld(tlp::PluginContext* context)
   : tlp::Algorithm(context)
 {
-  addInParameter<std::string>("file::filename", paramHelp[0],"");
+  /*addInParameter<std::string>("file::filename", paramHelp[0],"");*/
     
 }
 
 namespace ib = infiniband;
 namespace ibp = infiniband::parser;
 
-//Implementing min_distance
+//Implementing min_distance function
 int HelloWorld::min_distance(int dist[], bool visited[], int v){
-  int min = INT_MAX;
-    int min_index = 0;
-
-    for(int i = 0; i<v; i++){
-        if(!visited[i] && dist[i] < min)
-            min = dist[i], min_index = i;
+  int min = INT_MAX; 
+  int min_index = 0;
+  for(int i = 0; i<v; i++){
+    if(!visited[i] && dist[i] < min)
+      min = dist[i], min_index = i;
     }
 
-    return min_index;
+  return min_index;
 }
 
 
@@ -75,7 +74,7 @@ bool HelloWorld::run()
   if(pluginProgress)
   {
     pluginProgress->showPreview(false);
-    pluginProgress->setComment("Starting to Import Routes");
+    pluginProgress->setComment("Calculating the number of hops..");
     pluginProgress->progress(0, STEPS);
   }
 
@@ -85,7 +84,7 @@ bool HelloWorld::run()
    * for an existing fabric
    */
 
-  ib::tulip_fabric_t * const fabric = ib::tulip_fabric_t::find_fabric(graph, false);
+  /*ib::tulip_fabric_t * const fabric = ib::tulip_fabric_t::find_fabric(graph, false);
   if(!fabric)
   {
     if(pluginProgress)
@@ -103,7 +102,8 @@ bool HelloWorld::run()
   /**
    * Open file to read and import per type
    */
-  std::string filename;
+  
+  /*std::string filename;
   
   dataSet->get("file::filename", filename);
   std::ifstream ifs(filename.c_str());
@@ -132,7 +132,7 @@ bool HelloWorld::run()
 
   if(pluginProgress)
   {
-    pluginProgress->setComment("Parsing Routes complete.");
+    pluginProgress->setComment("Dijkstra's Algorithm Applied..");
     pluginProgress->progress(3, STEPS);
   }
 
@@ -142,7 +142,7 @@ bool HelloWorld::run()
    * calculate routes outbound
    * from every port on the fabric
    */
-  tlp::IntegerProperty * ibRoutesOutbound = graph->getProperty<tlp::IntegerProperty >("ibRoutesOutbound");
+  /*tlp::IntegerProperty * ibRoutesOutbound = graph->getProperty<tlp::IntegerProperty >("ibRoutesOutbound");
   assert(ibRoutesOutbound);
 
   if(pluginProgress)
@@ -187,13 +187,13 @@ bool HelloWorld::run()
   tlp::Iterator<node> *itnod = graph->getNodes();
   int v = 0; 
   
-  
+  //calculating the number of nodes "v"
   while( itnod->hasNext()){
-    node n = itnod->next();
+    
     v++;
   }
   
-  //initialize matrix
+  //initializing adjacency matrix
   int **adjacent_matrix;
   adjacent_matrix = new int* [v];
   for(int i = 0; i<v; i++){
@@ -215,7 +215,7 @@ bool HelloWorld::run()
     }
   }
   
-  //djistra implementation 
+  //djistra's algorithm implementation 
   int dist[v];
   bool visited[v];
   for(int i =0;i<v;i++){
@@ -234,9 +234,9 @@ bool HelloWorld::run()
     }
   }
   
-  //Print Distance
+  //Printing the minimum number of hops required to reach all other nodes from node '0'. 
   for(int i = 0; i<v; i++){
-    cout<<i<<": "<<dist[i]<<endl;
+    cout<<"From node "<<i<<": "<<dist[i]<<" hops is required"<<endl;
   }
 
   
@@ -247,7 +247,7 @@ bool HelloWorld::run()
 
   if(pluginProgress)
   {
-    pluginProgress->setComment("Calculating Route oversubscription complete.");
+    pluginProgress->setComment("Dijkstra's algorithm implementation complete..");
     pluginProgress->progress(STEPS, STEPS);
   }
 
