@@ -235,7 +235,7 @@ bool HelloWorld::run()
   //Get ibHops into the spreadsheet
   int k = 0;
   while(itnod->hasNext()){
-    node &m = itnod->next();
+    node &m = itnod->second;
     ibHops->setNodeValue(m, dist[k]);
     k++;
   }
