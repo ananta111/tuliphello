@@ -141,8 +141,8 @@ bool HelloWorld::run()
    * calculate routes outbound
    * from every port on the fabric
    */
-  tlp::IntegerProperty * ibHops = graph->getProperty<tlp::IntegerProperty >("ibHops");
-  assert(ibHops);
+  /*tlp::IntegerProperty * ibHops = graph->getProperty<tlp::IntegerProperty >("ibHops");
+  assert(ibHops);*/
 
   if(pluginProgress)
   {
@@ -234,12 +234,27 @@ bool HelloWorld::run()
   
   //Get ibHops into the spreadsheet
   
-  while(itnod->hasNext()){
-    const node &m = itnod->next();
-    const int &hops = dist[m.id];
-    ibHops->setNodeValue(m, hops);
-    
+  tlp::IntegerProperty * ibHops = graph->getProperty<tlp::IntegerProperty>("ibHops");
+  assert(ibHops);
+  if(pluginProgress)
+  {
+    pluginProgress->setComment("Getting ibHops into the spreadsheet");
+    pluginProgress->progress(5, STEPS);
   }
+  
+  tlp::Iterator<tlp::node> *itnodes = graph->getNodes();
+  while(itnodes->hasNext()){
+        const tlp::node &node = itnodes->next();
+        const int &temp = dist[node.id];
+        //if(dist[node.id]==max)
+        //  ibHub->setNodeValue(node, 216);
+        //else if(dist[node.id]==1)
+        //  ibHub->setNodeValue(node, -216);
+        //else if(dist[node.id]==avg)
+        //  ibHub->setNodeValue(node, 0);
+        ibHub->setNodeValue(node, temp);
+  }
+
   
     
   
