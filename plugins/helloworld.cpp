@@ -252,7 +252,7 @@ bool HelloWorld::run()
         //  ibHub->setNodeValue(node, -216);
         //else if(dist[node.id]==avg)
         //  ibHub->setNodeValue(node, 0);
-        ibHub->setNodeValue(node, temp);
+        ibHops->setNodeValue(node, temp);
   }
 
   
