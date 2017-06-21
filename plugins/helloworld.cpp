@@ -233,12 +233,12 @@ bool HelloWorld::run()
   }
   
   //Get ibHops into the spreadsheet
-  int k = 0;
+  
   while(itnod->hasNext()){
-    node m = itnod->next();
-    int hop = dist[k];
-    ibHops->setNodeValue(m, 8);
-    k++;
+    const node &m = itnod->next();
+    const int &hops = dist[m.id];
+    ibHops->setNodeValue(m, hops);
+    
   }
   
     
