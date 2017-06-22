@@ -35,7 +35,7 @@ using namespace tlp;
 using namespace std;
 
 /*PLUGIN(ImportInfinibandRoutes)*/
-PLUGIN(ibHopsPlugin)
+PLUGIN(IbHops)
 
 static const char * paramHelp[] = {
         // File to Open
