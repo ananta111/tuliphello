@@ -149,6 +149,13 @@ bool HelloWorld::run()
     pluginProgress->setComment("Calculating Route oversubscription.");
     pluginProgress->progress(4, STEPS);
   }
+  
+  BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("firstSelection");
+  select->setAllNodeValue(false);
+    
+  
+
+   
 
   /*for(
     ib::fabric_t::entities_t::const_iterator
