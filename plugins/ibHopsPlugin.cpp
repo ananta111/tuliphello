@@ -233,18 +233,16 @@ bool IbHops::run()
 
 
 
-    /*BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("firstSelection");
-    select->setAllNodeValue(false);
-    **/
-    SelectedEntity selectedEntity;
-    const node &mynode = selectedEntity.getNode();
-    int myid = mynode.id;
-    dist[myid] = 0;
-
+    BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("viewSelection");
+     
+    tlp::Iterator<node> selections = select->getNodesEqualTo(true,NULL);
     
-    
-        
-    
+    int myid = 0;
+    while(selections->hasNext()){
+        const node &mynode = selections->next();
+        myid = mynode.id
+    }
+    dist[myid]=0;
 
 
 
