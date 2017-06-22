@@ -46,7 +46,7 @@ static const char * paramHelp[] = {
   HTML_HELP_CLOSE()
 };
 
-HelloWorld::HelloWorld(tlp::PluginContext* context)
+IbHops::IbHops(tlp::PluginContext* context)
         : tlp::Algorithm(context)
 {
     addInParameter<std::string>("file::filename", paramHelp[0],"");
@@ -250,7 +250,7 @@ bool IbHops::run()
 
 
     for(int count=0;count<v-1;count++){
-        int u = HelloWorld::min_distance(dist,visited,v);
+        int u = IbHops::min_distance(dist,visited,v);
         visited[u] = true;
 
         for (int i =0;i<v;i++){
