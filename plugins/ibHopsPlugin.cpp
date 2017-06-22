@@ -235,12 +235,13 @@ bool IbHops::run()
 
     tlp::Iterator<node> *selectedNodes = select->getNodesEqualTo(true, NULL);
 
-    const tlp::node &mynode;
+    const int &myid;
     while (selectedNodes->hasNext()){
-        mynode = selectedNodes->next();
+        const tlp::node &mynode = selectedNodes->next();
+        myid = mynode.id;
     }
 
-    dist[mynode.id]=0;
+    dist[myid]=0;
 
 
 
