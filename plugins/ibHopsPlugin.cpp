@@ -218,6 +218,8 @@ bool IbHops::run()
             adjacent_matrix[t][s]=1;
         }
     }
+        
+      
 
     //djistra implementation
     int dist[v];
@@ -230,10 +232,10 @@ bool IbHops::run()
 
 
 
-    BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("firstSelection");
+    /*BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("firstSelection");
     select->setAllNodeValue(false);
-
-    tlp::Iterator<node> *selectedNodes = select->getNodesEqualTo(true, NULL);
+    **/
+    tlp::Iterator<node> *selectedNodes = viewSelection->getNodesEqualTo(true, NULL);
 
     int myid=0;
     while (selectedNodes->hasNext()){
@@ -241,7 +243,12 @@ bool IbHops::run()
         myid = mynode.id;
     }
 
-    dist[myid]=0;
+    dist[myid]=0; 
+
+    
+    
+        
+    
 
 
 
