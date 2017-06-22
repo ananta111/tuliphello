@@ -24,7 +24,7 @@
 #include<fstream>
 #include "ibHopsPlugin.h"
 #include "fabric.h"
-#include <GlScene.h>
+#include <tulip/GlScene.h>
 #include "ibautils/ib_fabric.h"
 #include "ibautils/ib_parser.h"
 #include "ibautils/regex.h"
