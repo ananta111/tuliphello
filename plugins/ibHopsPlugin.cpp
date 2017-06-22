@@ -22,7 +22,7 @@
  */
 
 #include<fstream>
-#include "helloworld.h"
+#include "ibHopsPlugin.h"
 #include "fabric.h"
 #include "ibautils/ib_fabric.h"
 #include "ibautils/ib_parser.h"
