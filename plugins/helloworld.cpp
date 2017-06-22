@@ -150,8 +150,7 @@ bool HelloWorld::run()
     pluginProgress->progress(4, STEPS);
   }
   
-  BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("firstSelection");
-  select->setAllNodeValue(false);
+  
     
   
 
