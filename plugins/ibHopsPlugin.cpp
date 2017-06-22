@@ -24,6 +24,7 @@
 #include<fstream>
 #include "ibHopsPlugin.h"
 #include "fabric.h"
+#include "helloworld.h"
 #include "ibautils/ib_fabric.h"
 #include "ibautils/ib_parser.h"
 #include "ibautils/regex.h"
@@ -235,7 +236,7 @@ bool IbHops::run()
     /*BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("firstSelection");
     select->setAllNodeValue(false);
     **/
-    tlp::Iterator<node> *selectedNodes = viewSelection->getNodesEqualTo(true, NULL);
+    tlp::Iterator<node> *selectedNodes = select->getNodesEqualTo(true, NULL);
 
     int myid=0;
     while (selectedNodes->hasNext()){
