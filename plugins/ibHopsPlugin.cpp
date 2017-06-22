@@ -240,7 +240,7 @@ bool IbHops::run()
     int myid = 0;
     while(selections->hasNext()){
         const node &mynode = selections->next();
-        myid = mynode.id
+        myid = mynode.id;
     }
     dist[myid]=0;
 
