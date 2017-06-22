@@ -235,7 +235,7 @@ bool IbHops::run()
 
     BooleanProperty *select = graph->getLocalProperty<BooleanProperty>("viewSelection");
      
-    tlp::Iterator<node> selections = select->getNodesEqualTo(true,NULL);
+    tlp::Iterator<node> *selections = select->getNodesEqualTo(true,NULL);
     
     int myid = 0;
     while(selections->hasNext()){
