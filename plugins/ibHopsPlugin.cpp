@@ -70,6 +70,19 @@ int IbHops::min_distance(int dist[], bool visited[], int v){
     return min_index;
 }
 
+//tracing the path
+void printPath(int parent[], int j)
+{
+    // Base Case : If j is source
+    if (parent[j]==-1)
+        return;
+ 
+    printPath(parent, parent[j]);
+ 
+    printf("%d ", j);
+}
+ 
+
 
 
 
@@ -225,8 +238,9 @@ bool IbHops::run()
     //djistra implementation
     int dist[v];
     bool visited[v];
+    int parent[v];
     for(int i =0;i<v;i++){
-        dist[i] = INT_MAX, visited[i]=false;
+        dist[i] = INT_MAX, visited[i]=false,parent[i]=-1;
     }
 
 
@@ -292,7 +306,15 @@ bool IbHops::run()
 
         cout<<i<<": "<<dist[i]<<endl;
     }
-
+        
+    //Tracing back 
+    int src = myid;
+    printf("Vertex\t  Distance\tPath");
+    for (int i = 1; i < v; i++)
+    {
+        printf("\n%d -> %d \t\t %d\t\t%d ", src, i, dist[i], src);
+        printPath(parent, i);
+    }
 
 
 
