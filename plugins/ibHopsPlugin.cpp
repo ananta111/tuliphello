@@ -71,7 +71,7 @@ int IbHops::min_distance(int dist[], bool visited[], int v){
 }
 
 //tracing the path
-void printPath(int parent[], int j)
+void IbHops::printPath(int parent[], int j)
 {
     // Base Case : If j is source
     if (parent[j]==-1)
