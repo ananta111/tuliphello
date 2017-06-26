@@ -272,6 +272,7 @@ bool IbHops::run()
         for (int i =0;i<v;i++){
             if (!visited[i] && adjacent_matrix[u][i] && dist[u] != INT_MAX && (dist[u] + adjacent_matrix[u][i]) < dist[i])
                 dist[i] = dist[u] + adjacent_matrix[u][i];
+                parent[i]=u;
         }
     }
 
