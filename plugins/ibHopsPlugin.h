@@ -46,7 +46,7 @@ public:
      */
 
     int min_distance(int dist[], bool visited[],int v);
-    void printPath(int parent[], int j);
+    
     bool run();
 };
 
