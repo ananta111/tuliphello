@@ -77,7 +77,7 @@ void IbHops::printPath(int parent[], int j)
     if (parent[j]==-1)
         return;
  
-    printPath(parent, parent[j]);
+    IbHops::printPath(parent, parent[j]);
  
     printf("%d ", j);
 }
@@ -271,8 +271,9 @@ bool IbHops::run()
 
         for (int i =0;i<v;i++){
             if (!visited[i] && adjacent_matrix[u][i] && dist[u] != INT_MAX && (dist[u] + adjacent_matrix[u][i]) < dist[i])
-                dist[i] = dist[u] + adjacent_matrix[u][i];
                 parent[i]=u;
+                dist[i] = dist[u] + adjacent_matrix[u][i];
+                
         }
     }
 
